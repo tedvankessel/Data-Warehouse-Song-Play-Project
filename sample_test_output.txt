@@ -1,0 +1,110 @@
+
+Testing table staging_events
+
+    staging_events table columns:
+    columns: ts, userid, status, sessionid, iteminsession, event_entry, gender, useragent, song, page, method, location, level, lastname, firstname, auth, artist, registration, length, 
+
+    staging_events table data rows:
+     (1, None, 'Logged In', 'Walter', 'M', 0, 'Frye', None, 'free', 'San Francisco-Oakland-Hayward, CA', 'GET', 'Home', Decimal('1540919166796'), 38, None, 200, 1541105830796, '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36"', 39)
+     (3, None, 'Logged In', 'Kaylee', 'F', 0, 'Summers', None, 'free', 'Phoenix-Mesa-Scottsdale, AZ', 'GET', 'Home', Decimal('1540344794796'), 139, None, 200, 1541106106796, '"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36"', 8)
+     (5, "Des'ree", 'Logged In', 'Kaylee', 'F', 1, 'Summers', Decimal('246'), 'free', 'Phoenix-Mesa-Scottsdale, AZ', 'PUT', 'NextSong', Decimal('1540344794796'), 139, 'You Gotta Be', 200, 1541106106796, '"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36"', 8)
+     (7, None, 'Logged In', 'Kaylee', 'F', 2, 'Summers', None, 'free', 'Phoenix-Mesa-Scottsdale, AZ', 'GET', 'Upgrade', Decimal('1540344794796'), 139, None, 200, 1541106132796, '"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36"', 8)
+     (9, 'Mr Oizo', 'Logged In', 'Kaylee', 'F', 3, 'Summers', Decimal('144'), 'free', 'Phoenix-Mesa-Scottsdale, AZ', 'PUT', 'NextSong', Decimal('1540344794796'), 139, 'Flat 55', 200, 1541106352796, '"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36"', 8)
+
+Testing table staging_songs
+
+    staging_songs table columns:
+    columns: year, num_songs, song_entry, title, song_id, artist_name, artist_location, artist_longitude, artist_latitude, artist_id, duration, 
+
+    staging_songs table data rows:
+     (0, 1, 'ARJNIUY12298900C91', None, None, '', 'Adelitas Way', 'SOBLFFE12AF72AA5BA', 'Scream', Decimal('213'), 2009)
+     (2, 1, 'ARMJAGH1187FB546F3', '35.149679999999996', '-90.048919999999995', 'Memphis, TN', 'The Box Tops', 'SOCIWDW12A8C13D406', 'Soul Deep', Decimal('148'), 1969)
+     (4, 1, 'ARSVTNL1187B992A91', '51.506320000000002', '-0.12714', 'London, England', 'Jonathan King', 'SOEKAZG12AB018837E', "I'll Slap Your Face (Entertainment USA Theme)", Decimal('129'), 2001)
+     (6, 1, 'AREWD471187FB49873', None, None, '', 'Son Kite', 'SOIGICF12A8C141BC5', 'Game & Watch', Decimal('580'), 2004)
+     (8, 1, 'ARXR32B1187FB57099', None, None, '', 'Gob', 'SOFSOCN12A8C143F5D', 'Face the Ashes', Decimal('209'), 2007)
+
+Testing table songplays
+
+    songplays table columns:
+    columns: songplay_id, user_agent, location, session_id, artist_id, song_id, level, user_id, start_time, 
+
+    songplays table data rows:
+     (2, datetime.datetime(2018, 11, 1, 21, 42), '10', 'free', 'SOCHRXB12A8AE48069', 'ARTDQRC1187FB4EFD4', '9', 'Washington-Arlington-Alexandria, DC-VA-MD-WV', '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.77.4 (KHTML, like Gecko) Version/7.0.5 Safari/537.77.4"')
+     (4, datetime.datetime(2018, 11, 3, 17, 44, 42), '95', 'paid', 'SOERMNK12A8C13D0C0', 'ARE4XYS1187FB5345E', '152', 'Winston-Salem, NC', '"Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53"')
+     (10, datetime.datetime(2018, 11, 5, 1, 40, 40), '44', 'paid', 'SOPIKEG12A58291636', 'AR06EB01187FB40150', '237', 'Waterloo-Cedar Falls, IA', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0')
+     (16, datetime.datetime(2018, 11, 5, 8, 54, 50), '42', 'paid', 'SOSKUNI12AB0187F12', 'ARZWK2R1187B98F09F', '129', 'New York-Newark-Jersey City, NY-NJ-PA', '"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36"')
+     (18, datetime.datetime(2018, 11, 5, 10, 13, 24), '95', 'paid', 'SOLRWTN12AC90719FF', 'ARL26PR1187FB576E5', '222', 'Winston-Salem, NC', '"Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53"')
+
+Testing table users
+
+    users table columns:
+    columns: user_id, level, gender, last_name, first_name, 
+
+    users table data rows:
+     (2, 'Jizelle', 'Benjamin', 'F', 'free')
+     (4, 'Alivia', 'Terrell', 'F', 'free')
+     (5, 'Elijah', 'Davis', 'M', 'free')
+     (7, 'Adelyn', 'Jordan', 'F', 'free')
+     (9, 'Wyatt', 'Scott', 'M', 'free')
+
+Testing table songs
+
+    songs table columns:
+    columns: year, song_id, artist_id, title, duration, 
+
+    songs table data rows:
+     ('SOABCEU12A8C132027', 'Cold Waste', 'ARL6NP61187B98C1FC', 2007, Decimal('385'))
+     ('SOAESJW12A8C137CC2', 'Musical Episode', 'AR3PN3R1187FB4CEBD', 2005, Decimal('234'))
+     ('SOAFBCP12A8C13CC7D', 'King Of Scurf (2007 Digital Remaster)', 'ARTC1LV1187B9A4858', 1972, Decimal('301'))
+     ('SOAFBKM12AB01837A7', 'Brain Dead', 'ARL14X91187FB4CF14', 1995, Decimal('94'))
+     ('SOAFLZM12A8C132A2D', 'Rock Rumberu', 'ARG17O11187FB4A8DA', 2006, Decimal('292'))
+
+Testing table artists
+
+    artists table columns:
+    columns: artist_id, location, name, longitude, latitude, 
+
+    artists table data rows:
+     ('ARJNIUY12298900C91', 'Adelitas Way', '', None, None)
+     ('ARSVTNL1187B992A91', 'Jonathan King', 'London, England', Decimal('51'), Decimal('0'))
+     ('AREWD471187FB49873', 'Son Kite', '', None, None)
+     ('ARXR32B1187FB57099', 'Gob', '', None, None)
+     ('ARCLYBR1187FB53913', 'Neal Schon', 'San Mateo, CA', Decimal('37'), Decimal('-122'))
+
+Testing table time
+
+    time table columns:
+    columns: weekday, year, month, week, day, hour, start_time, 
+
+    time table data rows:
+     (datetime.datetime(2018, 11, 1, 21, 8, 16), 21, 1, 44, 11, 2018, 44)
+     (datetime.datetime(2018, 11, 1, 21, 17, 33), 21, 1, 44, 11, 2018, 44)
+     (datetime.datetime(2018, 11, 1, 21, 24, 53), 21, 1, 44, 11, 2018, 44)
+     (datetime.datetime(2018, 11, 1, 21, 28, 54), 21, 1, 44, 11, 2018, 44)
+     (datetime.datetime(2018, 11, 1, 21, 42), 21, 1, 44, 11, 2018, 44)
+
+Find the most played song:
+
+    query =     
+        SELECT s.title AS most_played_song_title, COUNT(*) AS play_count
+        FROM songplays sp
+        JOIN songs s ON sp.song_id = s.song_id
+        GROUP BY sp.song_id, s.title
+        ORDER BY play_count DESC
+        LIMIT 1;
+     
+
+     ('Wicker Chair', 55)
+
+Find the highest usage time for songplay:
+
+    query =  
+        SELECT hour, COUNT(*) AS play_count
+        FROM time
+        JOIN songplays ON time.start_time = songplays.start_time
+        GROUP BY hour
+        ORDER BY play_count DESC
+        LIMIT 1;
+     
+
+     (18, 34)

@@ -9,7 +9,7 @@ Sparkify, has grown their user base and song database and want to move their pro
 As their data engineer, you are tasked with building an ETL pipeline that extracts their data from S3, stages them in Redshift, and transforms data into a set of dimensional tables for their analytics team to continue finding insights into what songs their users are listening to.
 
 Raw song play data is extracted from an AWS S3 repository
-to staging tables in a Redshift cluster in a PostgreSQL database. SQL statements are used to transform, regroup and create analytics tables. Subsequent queries can then performed against the analytics tables.
+to staging tables in a Redshift cluster in a PostgreSQL like database. SQL statements are used to transform, regroup and create analytics tables. Subsequent queries can then performed against the analytics tables.
 
 The raw song play data resides in three datasets on the Amazon Web Service (AWS) S3 bucket storage as follows:
 
@@ -54,7 +54,7 @@ Dimension Tables
 The code assumes:
 
     1. an instance of a Redshift cluster is operational 
-    2. an instance of a PosgresSQL database has been created
+    2. an instance of a PosgresSQL (Redshift) database has been created
     3. credentials for the IAM role and Redshift cluster are provided in the dwh.cfg file
         for use at runtime
         
@@ -62,11 +62,7 @@ The code assumes:
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+See below.
 
 ### Installing
 
@@ -106,6 +102,9 @@ Give examples
 		LOG_DATA='s3://udacity-dend/log_data'
 		LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
 		SONG_DATA='s3://udacity-dend/song_data/A/A'
+		
+		Note that in the SONG_DATA file I have chosen to upload a small portion for testing
+			to avoid very lengthly downloads.
 
 3.Construct the database tables, load raw data to staging tables and transform to analytics tables:
 
@@ -130,6 +129,10 @@ are described above.
 Each table in the database is tested to verify the column names and that it
 contains valid data.
 
+In addition, several queries are invoked to find the most played song and the hour that the most songs are played
+
+A file sample_test_output.txt is provided to show what you should see.
+
 ### Coding style tests
 
 PyLint has been run against all modules. 
@@ -141,10 +144,6 @@ __sql_queries.py:382:0: C0103: Constant name "insert_table_queries" doesn't conf
 I have also chosen to ignore errors relating to line length in the original project template. For example:
 
 __create_tables.py:44:0: C0301: Line too long (104/100) (line-too-long)__
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 

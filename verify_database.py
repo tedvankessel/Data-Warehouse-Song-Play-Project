@@ -15,6 +15,51 @@ This program should be run last.
 import configparser
 import psycopg2
 
+def find_most_played_song(cur, conn):
+    """ find the most played song """
+    
+    query = ("""   
+        SELECT s.title AS most_played_song_title, COUNT(*) AS play_count
+        FROM songplays sp
+        JOIN songs s ON sp.song_id = s.song_id
+        GROUP BY sp.song_id, s.title
+        ORDER BY play_count DESC
+        LIMIT 1;
+    """)
+    
+    print("\nFind the most played song:")
+    cur.execute(query)
+    conn.commit()
+    # Fetch all rows from the result set
+    rows = cur.fetchall()
+    print("\n    query = ", query, "\n")
+    # Iterate over the rows and print the data
+    for row in rows:
+        print("    ",row)
+        
+def find_highest_usage_time_for_songplay(cur, conn):
+    
+    query = ("""
+        SELECT hour, COUNT(*) AS play_count
+        FROM time
+        JOIN songplays ON time.start_time = songplays.start_time
+        GROUP BY hour
+        ORDER BY play_count DESC
+        LIMIT 1;
+    """)
+    
+    print("\nFind the highest usage time for songplay:")
+    cur.execute(query)
+    conn.commit()
+    # Fetch all rows from the result set
+    rows = cur.fetchall()
+    print("\n    query = ", query, "\n")
+    # Iterate over the rows and print the data
+    for row in rows:
+        print("    ",row)
+    
+
+
 def test_table(cur, conn, table_name):
     """Test a specific table"""
     print(f"\nTesting table {table_name}")
@@ -62,6 +107,12 @@ def main():
     test_table(cur, conn, "songs")
     test_table(cur, conn, "artists")
     test_table(cur, conn, "time")
+    
+    # find the most played song
+    find_most_played_song(cur, conn)
+    
+    # Find the highest usage time for songplay
+    find_highest_usage_time_for_songplay(cur, conn)
     
     # close the database connection
     conn.close()
